@@ -1,7 +1,7 @@
 /*
-과제 4 - 연결요소 세기
-2016125086 김유진
-utf-8 c++ MAC
+ 과제 4 - 연결요소 세기
+ 2016125086 김유진
+ utf-8 c++ MAC
  */
 #include <iostream>
 #include <vector>
@@ -16,11 +16,11 @@ int component;
 
 void input(){
     cin >> n >> m;
-
+    
     for( int i = 0 ; i < m ; i++){
-
+        
         cin >> a >> b; //input edge
-
+        
         if( (a > n)|| (b > n) || (a < 1) || (b < 1)  ){
             cout << "input node error!" << endl;
             return;
@@ -33,10 +33,10 @@ void input(){
 
 void dfs(int index){
     check[index] = 1;  //탐색했음을 표시
-
+    
     for(int i = 0 ; i < graph[index].size() ; i++){
         int temp = graph[index][i];
-
+        
         if(check[temp] == 0){
             dfs(temp);
         }
@@ -44,14 +44,14 @@ void dfs(int index){
 }
 
 void solve(){
-
+    
     for(int i = 1 ; i <= n ; i ++){
-        if(check[i] == 0){  //탐색 안했으면 
+        if(check[i] == 0){  //탐색 안했으면
             dfs(i);     //dfs
             component++;  //연결요소 증가
         }
     }
-
+    
 }
 
 //print answer
@@ -60,11 +60,11 @@ void output(){
 }
 
 int main(){
-
+    
     input();
     solve();
     output();
-
+    
     return 0;
-
+    
 }
